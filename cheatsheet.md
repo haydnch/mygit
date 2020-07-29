@@ -97,3 +97,55 @@ git config --global alias.br branch
 git config --global alias.unstage 'reset HEAD'
 ```
 
+## 启动redis
+
+```
+redis-server redis.windows.conf
+```
+
+### 启动服务
+
+```
+redis-server --service-start
+```
+
+### 关闭服务
+
+```
+redis-server --service-stop
+```
+
+## redis数据类型
+
+> Redis支持五种数据类型：==string==（字符串），==hash==（哈希），==list==（列表），==set==（集合）及==zset==(sorted set：有序集合)。
+
+## IDEA设置注释模版
+
+默认methodReturnType()方法会返回全名。
+
+例如：`@return java.util.List<java.util.Map<java.lang.String,java.lang.String>>`
+
+如果@return 后面不想要返回类型的全名，可以在***return***参数的expression内填入：
+
+> groovyScript("def result=''; def params=\"${_1}\".replaceAll('[\\\\[|\\\\]|\\\\s]', '').split('<').toList(); for(i = 0; i < params.size(); i++) {if(i!=0){result+='<';};  def p1=params[i].split(',').toList();  for(i2 = 0; i2 < p1.size(); i2++) { def p2=p1[i2].split('\\\\.').toList();  result+=p2[p2.size()-1]; if(i2!=p1.size()-1){result+=','}  } ;  };  return result", methodReturnType())
+
+就会变成`@return List<Map<String,String>>`
+
+## 关于@Builder注解
+
+有时为了在构造po类时，代码更优雅，会在po类加入@Builder注解，但因为@Builder和@Data一起使用时会将类的无参构造方法覆盖掉，会导致使用一些框架操作数据库时不能成功地将数据赋值给po类，例如myBatis。
+
+在类中重写无参构造方法，防止与lombok的注解冲突，在无参构造方法上面加入**@Tolerate**注解。例如：
+
+```java
+@Data
+@Builder
+public class DataBuilder implements Serializable {
+
+    @Tolerate
+    public DataBuilder (){}
+}
+```
+
+
+
