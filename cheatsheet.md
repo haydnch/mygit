@@ -20,9 +20,11 @@ tutorial-env\venv\Scripts\activate.bat
 
 在这里，自己创建了FlaskProject目录下的虚拟环境，如下图所示。
 
-![](enter.png)
+![](https://gitee.com/haydnch/myImage/raw/master/imgs/enter.png)
 
-<img src="venv.png" style="zoom: 80%;" />
+![](https://gitee.com/haydnch/myImage/raw/master/imgs/venv.png)
+
+
 
 ## 推送一个本地标签
 
@@ -145,6 +147,20 @@ public class DataBuilder implements Serializable {
     @Tolerate
     public DataBuilder (){}
 }
+```
+
+## vue无法加载
+
+若要在本地计算机上运行您编写的未签名脚本和来自其他用户的签名脚本，请使用以下命令将计算机上的 执行策略更改为 RemoteSigned。
+
+执行：`set-ExecutionPolicy RemoteSigned`
+
+![](https://gitee.com/haydnch/myImage/raw/master/imgs/image-20200731085530171.png)
+
+## npm设置淘宝镜像
+
+```
+npm config set registry https://registry.npm.taobao.org
 ```
 
 
