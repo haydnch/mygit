@@ -24,7 +24,35 @@ tutorial-env\venv\Scripts\activate.bat
 
 ![](https://gitee.com/haydnch/myImage/raw/master/imgs/venv.png)
 
+## 比较工作区与暂存区
 
+```
+git diff 不加参数即默认比较工作区与暂存区
+```
+
+## 比较暂存区与最新本地版本库（本地库中最近一次commit的内容）
+
+```
+git diff --cached [<path>...]
+```
+
+## 比较工作区与指定commit-id的差异
+
+```
+git diff commit-id  [<path>...]
+```
+
+## 比较暂存区与指定commit-id的差异
+
+```
+git diff --cached [<commit-id>] [<path>...]
+```
+
+## 比较两个commit-id之间的差异
+
+```
+git diff [<commit-id>] [<commit-id>]
+```
 
 ## 推送一个本地标签
 
@@ -75,7 +103,6 @@ git commit -m "remove"
 
 
 - 穿梭前，用`git log`可以查看提交历史，以便确定要回退到哪个版本
-
 - 要重返未来，用`git reflog`查看命令历史，以便确定要回到未来的哪个版本
 
 ## 创建+切换分支
@@ -163,5 +190,21 @@ public class DataBuilder implements Serializable {
 npm config set registry https://registry.npm.taobao.org
 ```
 
+## 一些默认端口号
 
+- **Tomcat**: 8080
+
+- **nginx**: 80
+
+- **mysql**: 3306
+
+- **redis**: 6379
+
+- **rabbitmq**: 1567
+
+- **发送邮件smtp**: 587
+
+- **Fastdfs: **22122
+
+  
 

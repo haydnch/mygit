@@ -129,6 +129,23 @@ alter user 'root'@'localhost' identified by 'your_password';
 
   ![image-20200801192323522](https://gitee.com/haydnch/myImage/raw/master/imgs/image-20200801192323522.png)
 
-  
-  
-  
+# 7 部署web项目到阿里云ECS
+
+  服务器数据库安装好后，将本地数据库导出为sql文件再导入服务器数据库中。
+
+由于之后会把本地IDEA项目打包成war包然后上传到服务器tomcat的webapp进行运行，所以要在项目的数据库配置文件中修改。在这里有一个需要注意的地方：
+
+注意本地mysql和服务器mysql版本的不同。由于本机是较老的5.5版本，阿里云ECS中安装的是8.0.21版本，项目中的数据库连接驱动也要换成高版本的。
+
+![image-20200802095405773](https://gitee.com/haydnch/myImage/raw/master/imgs/image-20200802095405773.png)
+
+mysql8.0以上连接驱动的配置要如下设置：
+
+`driver = com.mysql.cj.jdbc.Driver`
+`url = jdbc:mysql://localhost:3306/yourdb?useSSL=false&serverTimezone=UTC`
+
+新版本的driverClass必须要加上 **cj**，url中**useSSL**和**serverTimezone**也必须有，否则会报错。
+
+
+
+
