@@ -77,7 +77,11 @@ grep 'temporary password' /var/log/mysqld.log
 
 ```
 alter user 'root'@'localhost' identified by 'your_password';
+或者
+mysqladmin -u root -p password
 ```
+
+![image-20200806141901184](https://gitee.com/haydnch/myImage/raw/master/imgs/image-20200806141901184.png)
 
 在这里我们不能设置像1234、root这种简单密码，因为数据库设置了密码强度规则。因此先设置一个包含大小写字母、数字等的复杂密码，能通过强度验证。
 
