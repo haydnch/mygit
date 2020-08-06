@@ -2,19 +2,19 @@
 
 
 
-记录在阿里云ECS实例CentOS7.6 中安装Mysql数据库的步骤。
+**<u>记录在阿里云ECS实例CentOS7.6 中安装Mysql数据库的步骤。</u>**
 
 # 1 删除MariaDB
 
 Cent OS 7 的 yum 源中已经不再包含在 MySQL，而改用了 MariaDB。
 
-## 1 查询Maria DB是否已经安装
+## 1 .1 查询Maria DB是否已经安装
 
 ```
 rpm -qa | grep maria*
 ```
 
-##  2 删除MariaDB
+##  1.2 删除MariaDB
 
 ```
 yum -y remove maria*
@@ -101,7 +101,7 @@ alter user 'root'@'localhost' identified by 'your_password';
 
   当然，这个修改只建议在开发测试环境下使用，如果在生产环境使用简单密码，会导致数据库密码极易被破解，使得数据库中的数据有泄露的风险。
 
-  # 7 设置允许远程连接
+# 7 设置允许远程连接
 
   由于是在阿里云ECS中安装的数据库，为了便于操作，我们通常在本地的数据库管理软件进行远程连接。
 
@@ -129,7 +129,7 @@ alter user 'root'@'localhost' identified by 'your_password';
 
   ![image-20200801192323522](https://gitee.com/haydnch/myImage/raw/master/imgs/image-20200801192323522.png)
 
-# 7 部署web项目到阿里云ECS
+# 8 部署web项目到阿里云ECS
 
   服务器数据库安装好后，将本地数据库导出为sql文件再导入服务器数据库中。
 
