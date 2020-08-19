@@ -1,7 +1,3 @@
-
-
-
-
 **<u>记录在阿里云ECS实例CentOS7.6 中安装Mysql数据库的步骤。</u>**
 
 # 1 删除MariaDB
